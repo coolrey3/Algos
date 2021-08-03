@@ -1,3 +1,7 @@
+#Bubble Sort iterates through list comparing each value to the
+# next (except last) and swaps values when one number is larger 
+# or smaller than the next
+
 class BubbleSort():
     def __init__(self,numberlist):
         print('Raw numberlist: ',numberlist)
@@ -11,7 +15,6 @@ class BubbleSort():
             for x in range(len(self.numberlist)-1):
                 if self.numberlist[x] > self.numberlist[x+1]:
                     self.swap(self.numberlist,x,x+1)
-                    # self.numberlist[x] , self.numberlist[x + 1] = self.numberlist[x + 1],self.numberlist[x]
                     isSorted[x] = False
                 else:
                     isSorted[x] = True
@@ -27,7 +30,6 @@ class BubbleSort():
             for x in range(0,len(self.numberlist)-1):
                 if self.numberlist[x] < self.numberlist[x+1]:
                     self.swap(self.numberlist,x,x+1)
-                    # self.numberlist[x] , self.numberlist[x + 1] = self.numberlist[x + 1],self.numberlist[x]
                     isSorted[x] = False
                 else:
                     isSorted[x] = True
