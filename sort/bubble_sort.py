@@ -14,7 +14,7 @@ class BubbleSort():
             if self.numberlist == solved:
                 sortComplete = True
 
-        print('Array sorted: ',self.numberlist)
+        print('Array sorted with Bubble Sort-Ascending:\n',self.numberlist)
         return self.numberlist
 
     def sortDescending(self):
@@ -30,6 +30,6 @@ class BubbleSort():
             # else:
             #     print(self.numberlist)
 
-        print('Array sorted: ',self.numberlist)
+        print('Array sorted with Bubble Sort-Descending:\n',self.numberlist)
         return self.numberlist
 
