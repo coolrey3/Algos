@@ -1,3 +1,7 @@
+# selection sort selects the minimum value in array and sorts it in the 
+# first index and does the same after each iteration for i+1 to end of array
+
+
 class SelectionSort():
 
     def __init__(self,numberlist):
