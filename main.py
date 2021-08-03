@@ -8,8 +8,8 @@ array = [4,7,8,6,2,4,1,6,7,1,6,4,5,3,9,8]
 # bs.sortAscending()
 # bs.sortDescending()
 
-ss = SelectionSort(array)
-ss.sortAscending()
+# ss = SelectionSort(array)
+# ss.sortAscending()
 
-# ins = InsertionSort(array)
-# ins
+ins = InsertionSort(array)
+ins.sortAscending()
