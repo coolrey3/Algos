@@ -25,7 +25,6 @@ class BubbleSort():
             for x in range(0,len(self.numberlist)-1):
                 if self.numberlist[x] < self.numberlist[x+1]:
                     self.numberlist[x] , self.numberlist[x + 1] = self.numberlist[x + 1],self.numberlist[x]
-            
             if self.numberlist == solved:
                 sortComplete = True
             # else:
@@ -34,6 +33,3 @@ class BubbleSort():
         print('Array sorted: ',self.numberlist)
         return self.numberlist
 
-
-bs = BubbleSort([6,4,3,7,4,3,2,7,4,3,6,7,8,4,2,0])
-bs.sortDescending()
