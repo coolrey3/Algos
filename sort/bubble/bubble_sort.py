@@ -11,10 +11,8 @@ class BubbleSort():
             for x in range(len(self.numberlist)-1):
                 if self.numberlist[x] > self.numberlist[x+1]:
                     self.numberlist[x] , self.numberlist[x + 1] = self.numberlist[x + 1],self.numberlist[x]
-            
             if self.numberlist == solved:
                 sortComplete = True
-           
 
         print('Array sorted: ',self.numberlist)
         return self.numberlist
@@ -24,13 +22,14 @@ class BubbleSort():
         print(solved)
         sortComplete = False
         while sortComplete == False:
-            for x in range(1,len(self.numberlist)):
+            for x in range(0,len(self.numberlist)-1):
                 if self.numberlist[x] < self.numberlist[x+1]:
                     self.numberlist[x] , self.numberlist[x + 1] = self.numberlist[x + 1],self.numberlist[x]
             
             if self.numberlist == solved:
                 sortComplete = True
-           
+            # else:
+            #     print(self.numberlist)
 
         print('Array sorted: ',self.numberlist)
         return self.numberlist
