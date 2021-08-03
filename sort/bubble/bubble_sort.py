@@ -3,25 +3,21 @@ class BubbleSort():
         print(numberlist)
         print('--------------')
         self.numberlist = numberlist
-        self.solved = sorted(self.numberlist)
 
     def sortAscending(self):
-        sorted = False
-        while sorted == False:
+        solved = sorted(self.numberlist)
+        sortComplete = False
+        while sortComplete == False:
             for x in range(len(self.numberlist)-1):
-                # print(x)
                 if self.numberlist[x] > self.numberlist[x+1]:
                     self.numberlist[x] , self.numberlist[x + 1] = self.numberlist[x + 1],self.numberlist[x]
             
-            if self.numberlist == self.solved:
-                sorted = True
-            # else:
-            #     print('still not sorted')
-                # print(self.numberlist)
-            
+            if self.numberlist == solved:
+                sortComplete = True
+           
 
         print('Array sorted: ',self.numberlist)
         return self.numberlist
 
-bs = BubbleSort([5,3,6,2,1,7,9])
+bs = BubbleSort([6,4,3,7,4,3,2,7,4,3,6,7,8,4,2,0])
 bs.sortAscending()
