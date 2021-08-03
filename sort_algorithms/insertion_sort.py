@@ -1,4 +1,6 @@
 class InsertionSort():
 
-    def __init__(self):
-        print('\n insertion sort')
+    def __init__(self,numberlist):
+        print('InsertionSort numberlist: ',numberlist)
+        print('--------------')
+        self.numberlist = numberlist

@@ -4,7 +4,7 @@
 
 class BubbleSort():
     def __init__(self,numberlist):
-        print('Raw numberlist: ',numberlist)
+        print('BubbleSort numberlist: ',numberlist)
         print('--------------')
         self.numberlist = numberlist
 

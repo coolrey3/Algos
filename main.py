@@ -1,9 +1,15 @@
 from sort_algorithms.bubble_sort import * 
+from sort_algorithms.selection_sort import * 
 from sort_algorithms.insertion_sort import * 
 
-bs = BubbleSort([5,8,4,6,4,8,9,4,7,1,2,3,4,5,8,7,1,10,3,6,4,6,8,5,6,4,6])
-bs.sortAscending()
-bs.sortDescending()
+array = [4,7,8,6,2,4,1,6,7,1,6,4,5,3,9,8]
 
-ins = InsertionSort()
-ins
+# bs = BubbleSort(array)
+# bs.sortAscending()
+# bs.sortDescending()
+
+# ins = InsertionSort(array)
+# ins
+
+ss = SelectionSort(array)
+ss.sortAscending()
