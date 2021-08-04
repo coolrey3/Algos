@@ -24,6 +24,7 @@ class BinaryTree():
         node = self.root
         # print(node)
         i = 0
+        print('RIGHT EXPANDED')
         while node is not None:
             print(self.printChildren(node,i,'right'))
             # if node.lchild is not None:
@@ -34,12 +35,15 @@ class BinaryTree():
             i+= 1
         j = 0
         node = self.root
+        print('LEFT EXPANDED')
         while node is not None:
             print(self.printChildren(node,j,'left'))
             node = node.lchild
             j+= 1
+        
+        print('*************************')
 
-        return ''
+        return self.root.data
         # return self.printChildren(node,1)
 
     def printChildren(self,node,x,direction):
