@@ -6,32 +6,27 @@ class Node():   #define node class
 
     def __repr__(self):
         return self.data
-        # return '{} -> {}'.format(self.data,self.child)
 
 class Trie():
     def __init__(self):
         self.root = None
+        self.children = []
 
     def __repr__(self):
         node = self.root
-        children = []
         word = []
         words = []
         while node is not None:
-            # print('current node: {} node child: {} node is word: {}'.format(node.data,node.child,node.word))
-            # children.append(node.child)
             word.append(node.data)
-            # print('Word array contains: ',word)
             if node.word == True:
                 temp = ''
                 for x in word:
                     temp += x
-                # print('temp word is: ',temp)
                 words.append(temp)
 
             node = node.child
         print(" -> ".join(word))
-        # print(words)
+        print(self.children)
         return str(words) 
 
 node1 = Node('c')
@@ -51,5 +46,7 @@ node5.child = node6
 node6.child = node7
 
 trie1 = Trie()
+trie1.children.append('c')
+trie1.children.append('t')
 trie1.root = node1
 print(trie1)
