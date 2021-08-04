@@ -6,6 +6,7 @@ from sort_algorithms.merge_sort import *
 from search_algorithms.linear_search import * 
 
 from string_manipulation.vowels import * 
+from string_manipulation.reverse_string import * 
 
 
 array = [4,5,3,1,9,8,7]
@@ -27,5 +28,8 @@ array = [4,5,3,1,9,8,7]
 # ms = MergeSort(array)
 # ms.sortAscending(array)
 
-cv = CountVowels('hello')
-cv.count()
+# cv = CountVowels('hello')
+# cv.count()
+
+rs = ReverseString()
+rs.reverse('Melissa')
