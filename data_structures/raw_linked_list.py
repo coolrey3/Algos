@@ -9,6 +9,7 @@ class Node():                 # define Node Class
 class LinkedList():           # define LinkedList Class
     def __init__(self):     #initialize linked list, no parameters
         self.head = None    # assign head of linked list to None when initialized
+        self.tail = None
 
     def __repr__(self):     #modify string representation when printed (otherwise prints object location in memory)
         node = self.head    #assign head of linked list to node
@@ -20,6 +21,7 @@ class LinkedList():           # define LinkedList Class
         return " -> ".join(nodes)   #return the list of array with -> between each item
 
 llist = LinkedList()        #instantiate linkedlist class
+print(llist)                #print linked list
 
 first_node = Node('a')      #instantiate first node from Node class
 print(first_node)
@@ -28,4 +30,5 @@ second_node = Node("b")     #instantiate second node from Node class
 third_node = Node("c")      #instantiate third node from Node class
 first_node.next = second_node   #set first node next pointer to second node
 second_node.next = third_node   #set second node pointer to third node
+print(third_node.next)
 print(llist)                #print linked list
