@@ -21,22 +21,10 @@ class LinkedList:           # define LinkedList Class
 
 llist = LinkedList()        #instantiate linkedlist class
 
-first_node = Node('a')      #instantiate Node class
-# print(first_node)
-# print(llist)
+first_node = Node('a')      #instantiate first node from Node class
 llist.head = first_node     #assign head of linkedlist to first node
-print(llist)
-
-second_node = Node("b")
-third_node = Node("c")
-first_node.next = second_node
-second_node.next = third_node
-print(llist)
-
-# node = Node()
-# node.newNode(ll,5)
-# ll.newNode(5)
-# ll.newNode(1)
-# ll.newNode(3)
-# ll.newNode(4)
-
+second_node = Node("b")     #instantiate second node from Node class
+third_node = Node("c")      #instantiate third node from Node class
+first_node.next = second_node   #set first node next pointer to second node
+second_node.next = third_node   #set second node pointer to third node
+print(llist)                #print linked list
