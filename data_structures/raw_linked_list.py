@@ -1,36 +1,42 @@
-class LinkedList():
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+    def __repr__(self):
+        return self.data
+
+class LinkedList:
     def __init__(self):
-        # self.newLL()
-        l= {}
-        self.l = l
-        self.l['first'] = ''
-        self.l['last'] = ''
-        self.l['nodes'] = []
-        print(self.l)
-    
-    def newLL(self,first= '',last = ''):
-        self.l['first'] = first
-        self.l['last'] = last
+        self.head = None
 
-    def newNode(self,value=''):
-        node = {}
-        node['value'] = value
-        
-        if self.l['first'] == '':
-            self.l['first'] = node['value']
-            self.l['nodes'].append(node)
-        else:
-            self.l['nodes'].append(node)
-        print(self.l)
+    def __repr__(self):
+        node = self.head
+        nodes = []
+        while node is not None:
+            nodes.append(node.data)
+            node = node.next
+        nodes.append("None")
+        return " -> ".join(nodes)
 
-        secondLastIndex = len(self.l['nodes'])-2
-        print(self.l['nodes'][secondLastIndex]['value'])
-        if len(self.l['nodes'])  >= 1 :
-            node['next'] = self.l['nodes'][secondLastIndex]['value']
+llist = LinkedList()
+print(llist)
 
-ll = LinkedList()
-ll.newNode(5)
-ll.newNode(1)
-ll.newNode(3)
-ll.newNode(4)
+first_node = Node('a')
+print(first_node)
+llist.head = first_node
+print(llist)
+
+second_node = Node("b")
+third_node = Node("c")
+first_node.next = second_node
+second_node.next = third_node
+print(llist)
+
+# node = Node()
+# node.newNode(ll,5)
+# ll.newNode(5)
+# ll.newNode(1)
+# ll.newNode(3)
+# ll.newNode(4)
 
