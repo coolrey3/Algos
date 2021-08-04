@@ -8,7 +8,7 @@ class LinearSearch():
         print(array)
 
     def search(self):
-        for x in self.array:
+        for x in range(len(self.array)):
             if x == self.searchString:
                 return True
         else:

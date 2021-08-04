@@ -5,11 +5,14 @@ from sort_algorithms.merge_sort import *
 
 from search_algorithms.linear_search import * 
 
+from string_manipulation.vowels import * 
+
+
 array = [4,5,3,1,9,8,7]
 
 
-ls = LinearSearch(['q','e','g',],'g')
-print(ls.search())
+# ls = LinearSearch(['q','e','g',],'g')
+# print(ls.search())
 
 # bs = BubbleSort(array)
 # bs.sortAscending()
@@ -23,3 +26,6 @@ print(ls.search())
 
 # ms = MergeSort(array)
 # ms.sortAscending(array)
+
+cv = CountVowels('hello')
+cv.count()
