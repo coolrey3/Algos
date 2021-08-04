@@ -10,7 +10,7 @@ class LinkedList:           # define LinkedList Class
     def __init__(self):     #initialize linked list, no parameters
         self.head = None    # assign head of linked list to None when initialized
 
-    def __repr__(self):     #modify string representation when printed 
+    def __repr__(self):     #modify string representation when printed (otherwise prints object location in memory)
         node = self.head    #assign head of linked list to node
         nodes = []          #create empty array for child nodes
         while node is not None:     #iterate while head node is not None
@@ -19,12 +19,12 @@ class LinkedList:           # define LinkedList Class
         nodes.append("None")        #append None to end of nodes array
         return " -> ".join(nodes)   #return the list of array with -> between each item
 
-llist = LinkedList()
-print(llist)
+llist = LinkedList()        #instantiate linkedlist class
 
-first_node = Node('a')
-print(first_node)
-llist.head = first_node
+first_node = Node('a')      #instantiate Node class
+# print(first_node)
+# print(llist)
+llist.head = first_node     #assign head of linkedlist to first node
 print(llist)
 
 second_node = Node("b")
