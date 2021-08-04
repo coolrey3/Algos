@@ -1,4 +1,4 @@
-class Node:                 # define Node Class
+class Node():                 # define Node Class
     def __init__(self, data): #initialize a new node that takes data parameter
         self.data = data    # assign data value via parameter to this node
         self.next = None    #assign pointer to next node(defaults to none)
@@ -6,7 +6,7 @@ class Node:                 # define Node Class
     def __repr__(self):     #modify string representation when printed 
         return self.data    #return data value when printing node
 
-class LinkedList:           # define LinkedList Class
+class LinkedList():           # define LinkedList Class
     def __init__(self):     #initialize linked list, no parameters
         self.head = None    # assign head of linked list to None when initialized
 
@@ -22,6 +22,7 @@ class LinkedList:           # define LinkedList Class
 llist = LinkedList()        #instantiate linkedlist class
 
 first_node = Node('a')      #instantiate first node from Node class
+print(first_node)
 llist.head = first_node     #assign head of linkedlist to first node
 second_node = Node("b")     #instantiate second node from Node class
 third_node = Node("c")      #instantiate third node from Node class
