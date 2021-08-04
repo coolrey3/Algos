@@ -27,27 +27,27 @@ class MergeSort():
         
 
     def merge(self, left,right,result):
-        i = 0
-        j = 0
-        k = 0
-        while i > len(left) and j < len(right):
-            if left[i] <= right[j]:
+        i = 0 # left array index
+        j = 0 # right array index
+        k = 0 # merged array index
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
                 result[k] = left[i]
-                k+=1
+                # k+=1
                 i+=1
             else:
                 result[k] = right[j]
-                k+=1
                 j+=1
+            k+=1
 
         while i < len(left):
             result[k] = left[i]
-            k+=1
             i+=1
+            k+=1
 
         while j < len(right):
             result[k] = right[j]
-            k+=1
             j+=1
+            k+=1
         return result
 
