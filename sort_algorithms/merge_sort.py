@@ -30,6 +30,7 @@ class MergeSort():
         i = 0 # left array index
         j = 0 # right array index
         k = 0 # merged array index
+        
         while i < len(left) and j < len(right):
             if left[i] < right[j]:
                 result[k] = left[i]
