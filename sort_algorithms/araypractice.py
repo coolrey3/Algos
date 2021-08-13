@@ -12,6 +12,8 @@
 #*                      than second, swaps the two. Loops over until
 #*                      array is sorted
 
+arr1  = [3,5,2,3,4,43,2,3,4,45,2,34,4,3,3,9,7,8,9]
+arr2 = [4,9,2,3,1,7,6,5]
 class BubbleSort():
     def __init__(self,arr):
         original = arr[:]   #copy input  for logging purposes
@@ -26,7 +28,7 @@ class BubbleSort():
         print('Input: ',original)
         print('Output: Bubble Sort: ',arr) 
 
-bs = BubbleSort([4,6,2,34,76,31,3,9,8])
+# bs = BubbleSort([4,6,2,34,76,31,3,9,8])
 
 # **********************************************************************************************
 #* 2. Selection Sort:
@@ -40,7 +42,31 @@ bs = BubbleSort([4,6,2,34,76,31,3,9,8])
 #* 		             Sort but bubble sort has better best time complexity.
 #* 		             It can also be implemented as stabaly.
 #* 		             Selection sort makes O(n) swaps which is minimum among all sorting algorithms mentioned above.	
-#*    Description:
+#*    Description:  Select the smallest value in array and sort at beginning of array
+
+class SelectionSort():
+    def __init__(self,arr):
+        original = arr[:]
+        sortComplete = False
+        i = 0
+        smallest = 0
+        verify = 0
+        while sortComplete != True and i < len(arr):
+            if verify >= 2:
+                sortComplete = True
+            for x in range(0+i,len(arr)): 
+                if arr[x] < arr[smallest]:
+                    smallest = x
+                    sortComplete = False
+                    verify = 0
+            verify += 1
+            arr[smallest] ,arr[i] = arr[i], arr[smallest]
+            i += 1
+            smallest = i
+        print(original)
+        print(arr)
+
+# ss = SelectionSort(arr2)
 
 
 # **********************************************************************************************
@@ -54,7 +80,29 @@ bs = BubbleSort([4,6,2,34,76,31,3,9,8])
 #* 		             than a threshold and for small size it is better than merge
 #* 		             and quick sort becasue of low constant values and non
 #*  		             recusive in nature.
-#*    Description:
+#*    Description:  insertion sort divides arr in to a sorted and unsorted
+#*                  starting at index 1 and if it finds a smaller value in
+#*                  sorted than current in unsorted, shifts all sorted to the
+#*                  right and inserts in correct location
+
+class InsertionSort():
+    def __init__(self,arr):
+        original = arr[:]   # copy original for logging
+        for x in range(1,len(arr)): #for each value after first in arr
+            current = arr[x]        #save current in case of overwrite
+            for j in range(x-1,-1,-1):  #for each item in sorted side
+                if arr[j] > current:   #if current US is smaller than current S
+                    arr[j+1] = arr[j]   #shift current in S to right 1
+                else:
+                    arr[j]= current     #after shifting complete, assign US in correct S index
+                    break               #already assigned, restarting loop
+                arr[j] = current        #assign current US to correct S index if all larger 
+
+        print(original)
+        print(arr)
+
+# ins = InsertionSort(arr1)
+
 
 # **********************************************************************************************
 #* 4. Heap Sort:
@@ -75,7 +123,7 @@ bs = BubbleSort([4,6,2,34,76,31,3,9,8])
 #*    Space Complexity: O(n+k) 
 #*    Stablitiy       : Not-Stable
 #*    Is-In-Place     : In-Place
-#*    Description:
+#*    Description:  Sort arr by counting instances of numbers and rebuilding arr with occurence
 
 
 # **********************************************************************************************
