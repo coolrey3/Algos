@@ -13,7 +13,7 @@
 #*                      array is sorted
 
 arr1  = [3,5,2,3,4,43,2,3,4,45,2,34,4,3,3,9,7,8,9]
-arr2 = [4,9,2,3,1,7,6,5]
+arr2 = [4,9,2,3,1,7,6,5,5]
 class BubbleSort():
     def __init__(self,arr):
         original = arr[:]   #copy input  for logging purposes
@@ -125,6 +125,27 @@ class InsertionSort():
 #*    Is-In-Place     : In-Place
 #*    Description:  Sort arr by counting instances of numbers and rebuilding arr with occurence
 
+def CountingSort(arr):
+    original = arr[:]
+    counts = {}
+    results = []
+    for x in range(max(arr)):
+        counts[x] = 0
+
+    for x in arr:
+        if x in counts:
+            counts[x] += 1
+        # else:
+        #     counts[x] = 1
+
+    for k,v in counts.items():
+        if v >= 1:
+            for i in range(v):
+                results.append(k)
+    print(original)
+    print(results)
+
+CountingSort(arr2)
 
 # **********************************************************************************************
 #* 6. Merge Sort:
@@ -136,7 +157,45 @@ class InsertionSort():
 #*    When to use     : 1.When we don't have random access(linked list)
 #*                       [R.A like as we have in array]
 #*                      2.When array is not to large.
-#*    Description:
+#*    Description:  Merge sort uses divide and conquer principle and 
+#*                  recursion to divid arr in to smaller arr with length of
+#*                  1 and then puts them back together in sorted order 
+#*                  comparing left mose values of each arr until one arr
+#*                  reaches end, then appends other arr to results arr
+
+def MergeSort(arr):
+    original = arr[:]
+    results = []
+    # take in arr and recursively split until only 1 item left
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        # print(mid)
+        left = arr[:mid]
+        right = arr[mid:]
+        MergeSort(left)
+        MergeSort(right)
+
+        for i in range(len(left)-1):
+            if left[i] < left[i+1]:
+                results.append(left[i])
+            else:
+                results.append(left[i+1])    
+
+
+        for i in range(len(right)-1):
+            if right[i] < right[i+1]:
+                results.append(right[i])
+            else:
+                results.append(right[i+1])    
+
+
+        print('left: ',left)
+        print('right: ',right)
+    # print(original)
+    # print(results)
+
+
+# MergeSort(arr2)
 
 
 # **********************************************************************************************
