@@ -34,13 +34,29 @@ class InsertionSort():
         print(A)
         return A
 
+
+    def practice(self):
+        arr = self.numberlist
+        for x in range(1,len(arr)): # for each number in array input
+            current = arr[x] # current set to input arr[x] index 
+            for j in range(x-1,-1,-1): # for range in everything to left of current
+                if arr[j] > current: # if current in sorted array is greater than current in unsorted
+                    arr[j+1] = arr[j]  # current in sorted +1 equal to current ( shifting to right in order)
+                else:
+                    arr[j+1] = current  # current in sorted is smaller than current unsorted,placing current unsorted next to current sorted
+                    break
+                arr[j] = current #assign place in sorted to current in correct index ( only runs if less than to replace value)
+        print(arr)
+
+
+
 array1 = [9,6,4,7,5,2,9,4,2,6,4,1,9,2]
 t=InsertionSort(array1)
-c = t.sort()
-v = sorted(array1)
-print(v)
-if c == v:
-    print('true')
+t.sortAscending()
+# v = sorted(array1)
+# print(v)
+# if c == v:
+#     print('true')
 
 
 
