@@ -64,9 +64,37 @@ class SinglyLinkedList():
         if self.length == 0: return None
         oldHead = self.head
         self.head = oldHead.next
-        oldHead.next = None
         self.length -= 1
+        if self.length == 0:
+            self.tail = None
+        oldHead.next = None
         return oldHead
+
+    def unshift(self,node):
+        if self.head == None:
+            self.head =node
+            self.tail = node
+        else:
+            oldHead = self.head
+            self.head = node
+            self.head.next = oldHead
+            self.length += 1
+        return self
+
+    def get(self,index):
+        if index >= self.length or index <= 0: return None
+        i = 0
+        current = self.head
+        while i != index:
+            current = current.next
+            i += 1
+        return current
+    
+    def set(self,index,data):
+        current = self.get(index)
+        current.data = data
+        return current
+
 
 ll = SinglyLinkedList()
 
@@ -75,13 +103,21 @@ ll.push(first)
 ll.push(Node(6))
 ll.push(Node(9))
 ll.push(Node(22))
-# ll.push(Node(31))
-# ll.push(Node(36))
-# ll.push(Node(45))
+ll.push(Node(31))
+ll.push(Node(36))
+ll.push(Node(45))
 print(ll)
 print()
 # ll.traverse()
-print(ll.shift())
+print(ll.unshift(Node(99)))
+
+print('before')
+print(ll.get(4))
+print()
+print(ll.set(4,100))
+print('after')
+
+print(ll.get(4))
 print()
 print(ll)
 
