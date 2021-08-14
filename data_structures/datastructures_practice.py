@@ -92,6 +92,8 @@ class SinglyLinkedList():
     
     def set(self,index,data):
         current = self.get(index)
+        if current == None:
+            return False
         current.data = data
         return current
 
@@ -114,7 +116,7 @@ print(ll.unshift(Node(99)))
 print('before')
 print(ll.get(4))
 print()
-print(ll.set(4,100))
+print(ll.set(14,100))
 print('after')
 
 print(ll.get(4))
