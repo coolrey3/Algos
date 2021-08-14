@@ -14,8 +14,10 @@ class SinglyLinkedList():
         self.length = 0
 
     def __repr__(self):
-        return 'Head: {} \nTail: {} Length: {}'.format(str(self.head),str(self.tail.data),str(self.length))
-
+        if self.length !=0:
+            return 'Head: {} \nTail: {} Length: {}'.format(str(self.head),str(self.tail.data),str(self.length))
+        else:
+            return 'Linked List is Empty'
     def push(self,node):
         
         if self.head == None:
@@ -36,6 +38,8 @@ class SinglyLinkedList():
             current = current.next
 
     def pop(self):
+        if self.length == 0: return None
+
         current = self.head
         tempTail = self.tail
         popNode = None
@@ -46,6 +50,10 @@ class SinglyLinkedList():
                 self.tail = current
                 self.tail.next = None
                 self.length -= 1
+            elif current.next == None and self.length == 1:
+                self.length -= 1
+                self.head = None
+                self.tail = None
             else:
                 current = current.next
         print('Popping:',popNode)
@@ -66,7 +74,7 @@ ll.push(Node(45))
 print(ll)
 print()
 # ll.traverse()
-ll.pop()
+print(ll.pop())
 print()
 print(ll)
 
