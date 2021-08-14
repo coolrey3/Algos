@@ -50,6 +50,7 @@ class SinglyLinkedList():
                 current = current.next
         print('Popping:',popNode)
         print('New Tail: ',self.tail)
+        return popNode
 
 
 ll = SinglyLinkedList()
