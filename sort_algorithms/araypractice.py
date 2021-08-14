@@ -145,7 +145,7 @@ def CountingSort(arr):
     print(original)
     print(results)
 
-CountingSort(arr2)
+# CountingSort(arr1)
 
 # **********************************************************************************************
 #* 6. Merge Sort:
@@ -165,37 +165,38 @@ CountingSort(arr2)
 
 def MergeSort(arr):
     original = arr[:]
+        # take in arr and recursively split until only 1 item left
+    if len(arr) <= 1:
+        return arr
+    mid = len(arr) // 2
+    left = MergeSort(arr[:mid])
+    right = MergeSort(arr[mid:])
+    return Merge(left,right)
+
+def Merge(arr1,arr2):
     results = []
-    # take in arr and recursively split until only 1 item left
-    if len(arr) > 1:
-        mid = len(arr) // 2
-        # print(mid)
-        left = arr[:mid]
-        right = arr[mid:]
-        MergeSort(left)
-        MergeSort(right)
+    k = 0
+    j = 0
 
-        for i in range(len(left)-1):
-            if left[i] < left[i+1]:
-                results.append(left[i])
-            else:
-                results.append(left[i+1])    
+    while k < len(arr1) and j < len(arr2):
+        if arr2[j] > arr1[k]:
+            results.append(arr1[k])
+            k += 1
+        else:
+            results.append(arr2[j])
+            j += 1
 
+    while j < len(arr2):
+        results.append(arr2[j])
+        j += 1
+    while k < len(arr1):
+        results.append(arr1[k])
+        k += 1
 
-        for i in range(len(right)-1):
-            if right[i] < right[i+1]:
-                results.append(right[i])
-            else:
-                results.append(right[i+1])    
+    return results
 
-
-        print('left: ',left)
-        print('right: ',right)
-    # print(original)
-    # print(results)
-
-
-# MergeSort(arr2)
+# Merge([1,10,50],[2,14,99,100])
+print(MergeSort(arr1))
 
 
 # **********************************************************************************************
@@ -210,4 +211,26 @@ def MergeSort(arr):
 #*    Description:
 
 #* ----------------------------------------------------------------------------------------------
+#*              Quick Sort                    *    Merge Sort 
+#* 1.Time       O(nLog(n)),O(n*n).            *    O(nLog(n))
+#* 2.Space      O(1).                         *    O(n)
+#* 3.Advantage  When random access is there.  *    When random access is costly(i.e Linked List)
+#* 4.Stability  Not Stable.                   *    Stable
+#* 5.In-Place   In-Place.                     *    Not-In-Place
+#* 6.Address    Never Rise.                   *    May arise when array/list is extremely large
+#*   Space
+#*   Overflow
+#*   Condition
+
+# **********************************************************************************************
+#* 8. Radix Sort:
+#*    Time Complexity : 
+#*    Space Complexity:  
+#*    Stablitiy       :  
+#*    Is-In-Place     : 
+#*    Tag             : 
+#*    When to use     : 
+#*    Description:  
+
+
 # **********************************************************************************************
