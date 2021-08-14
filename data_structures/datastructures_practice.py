@@ -60,6 +60,13 @@ class SinglyLinkedList():
         print('New Tail: ',self.tail)
         return popNode
 
+    def shift(self):
+        if self.length == 0: return None
+        oldHead = self.head
+        self.head = oldHead.next
+        oldHead.next = None
+        self.length -= 1
+        return oldHead
 
 ll = SinglyLinkedList()
 
@@ -68,13 +75,13 @@ ll.push(first)
 ll.push(Node(6))
 ll.push(Node(9))
 ll.push(Node(22))
-ll.push(Node(31))
-ll.push(Node(36))
-ll.push(Node(45))
+# ll.push(Node(31))
+# ll.push(Node(36))
+# ll.push(Node(45))
 print(ll)
 print()
 # ll.traverse()
-print(ll.pop())
+print(ll.shift())
 print()
 print(ll)
 
