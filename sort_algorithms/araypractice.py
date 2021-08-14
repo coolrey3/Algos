@@ -163,14 +163,13 @@ def CountingSort(arr):
 #*                  comparing left mose values of each arr until one arr
 #*                  reaches end, then appends other arr to results arr
 
-def MergeSort(arr):
-    original = arr[:]
+def Sort(arr):
         # take in arr and recursively split until only 1 item left
     if len(arr) <= 1:
         return arr
     mid = len(arr) // 2
-    left = MergeSort(arr[:mid])
-    right = MergeSort(arr[mid:])
+    left = Sort(arr[:mid])
+    right = Sort(arr[mid:])
     return Merge(left,right)
 
 def Merge(arr1,arr2):
@@ -189,6 +188,7 @@ def Merge(arr1,arr2):
     while j < len(arr2):
         results.append(arr2[j])
         j += 1
+        
     while k < len(arr1):
         results.append(arr1[k])
         k += 1
@@ -196,7 +196,7 @@ def Merge(arr1,arr2):
     return results
 
 # Merge([1,10,50],[2,14,99,100])
-print(MergeSort(arr1))
+print(Sort(arr1))
 
 
 # **********************************************************************************************
