@@ -97,34 +97,60 @@ class SinglyLinkedList():
         current.data = data
         return current
 
+    def insert(self,index,node):
+
+        if index == self.length:
+            self.push(node)
+            return self
+        
+        if index == 0:
+            self.unshift(node)
+            return self
+        
+        current = self.head
+        i = 0
+        while i != index:
+            if i + 1 == index:
+                previous = current
+            current = current.next
+            i += 1
+        previous.next = node
+        node.next = current
+        self.length += 1
+        print(previous) #previous.next points to node
+        print(current) #node.next point to current
+
+
+
 
 ll = SinglyLinkedList()
 
 first = Node(5)
 ll.push(first)
-ll.push(Node(6))
-ll.push(Node(9))
-ll.push(Node(22))
-ll.push(Node(31))
-ll.push(Node(36))
+# ll.push(Node(6))
+# ll.push(Node(9))
+# ll.push(Node(22))
+# ll.push(Node(31))
+# ll.push(Node(36))
 ll.push(Node(45))
-print(ll)
-print()
 # ll.traverse()
-print(ll.unshift(Node(99)))
+# print(ll.unshift(Node(99)))
 
-print('before')
-print(ll.get(4))
-print()
-print(ll.set(14,100))
-print('after')
+# print('before')
+# print(ll.get(4))
+# print()
+# print(ll.set(14,100))
+# print('after')
 
-print(ll.get(4))
+print(ll.get(1))
 print()
-print(ll)
+ll.insert(1,Node(1))
 
 # ll.head = first
 # first.next = Node(14)
 # first.next.next = Node(33)
-# print()
+print()
 # print(ll.head)
+
+print(ll)
+print()
