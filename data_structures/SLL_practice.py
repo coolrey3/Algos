@@ -82,7 +82,10 @@ class SinglyLinkedList():
         return self
 
     def get(self,index):
-        if index >= self.length or index <= 0: return None
+        if index >= self.length or index < 0: return None
+
+        if index == 0:
+            return self.head
         i = 0
         current = self.head
         while i != index:
@@ -120,6 +123,14 @@ class SinglyLinkedList():
         print(previous) #previous.next points to node
         print(current) #node.next point to current
 
+    def remove(self,index):
+
+        previous = self.get(index-1)
+        current = self.get(index)
+
+        print('previous: ',previous)
+        print('current:',current)
+
 
 
 
@@ -152,5 +163,6 @@ ll.insert(1,Node(1))
 print()
 # print(ll.head)
 
+ll.remove(1)
 print(ll)
 print()
