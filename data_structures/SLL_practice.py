@@ -125,11 +125,24 @@ class SinglyLinkedList():
 
     def remove(self,index):
 
+        if index == 0:
+            
+            return self.shift()
+        if index == self.length-1:
+            
+            return self.pop()
+
         previous = self.get(index-1)
         current = self.get(index)
+        previous.next = current.next
+        current.next = None
+        self.length -= 1
 
         print('previous: ',previous)
-        print('current:',current)
+        print('to be removed:',current)
+
+    def reverse(self):
+        ...
 
 
 
@@ -163,6 +176,6 @@ ll.insert(1,Node(1))
 print()
 # print(ll.head)
 
-ll.remove(1)
+ll.remove(0)
 print(ll)
 print()
