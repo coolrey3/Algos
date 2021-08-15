@@ -44,3 +44,11 @@ class Queue():
         self.size -= 1
 
         return self.first
+
+q = Queue()
+q.enqueue('first')
+q.enqueue('last')
+q.enqueue('mid')
+q.dequeue()
+q.dequeue()
+print(q.first.data)
