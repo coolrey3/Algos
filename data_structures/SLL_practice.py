@@ -142,7 +142,12 @@ class SinglyLinkedList():
         print('to be removed:',current)
 
     def reverse(self):
-        ...
+        tempHead = self.head  
+        tempTail = self.tail
+
+        self.tail,self.head =self.head,self.tail
+        self.head.next = tempHead.next
+        
 
 
 
