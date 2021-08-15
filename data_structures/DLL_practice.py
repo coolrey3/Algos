@@ -97,20 +97,28 @@ class DoublyLinkedList():
             while i != index:
                 current = current.next
                 i += 1
+            print('from beginning')
             print(current)
             return current
-            # from beginning
+            
         else:
-            i= 0
+            i= self.length-1
             current = self.tail
             while i != index:
                 current = current.previous
-                i += 1
-                print(current)
-                return current
+                i -= 1
+            print('from end')
+            print(current)
+            return current
 
-            # from end
-            ...
+            
+    def set(self,index,data):
+
+        current = self.get(index)
+        if current:
+            current.data = data
+        else:
+            return None
 
 first = Node(5)
 dl= DoublyLinkedList()
@@ -126,5 +134,7 @@ dl.unshift(Node(55))
 print(dl)
 print()
 
-dl.get(0)
-# print(dl.tail)
+dl.get(3)
+dl.set(3,420)
+dl.get(3)
+print(dl)
