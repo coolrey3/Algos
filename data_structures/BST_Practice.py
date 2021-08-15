@@ -46,7 +46,29 @@ class BinarySearchTree():
         return self
 
     def find(self,val):
-        ...
+        
+        if self.root == None: return None
+
+        current = self.root
+        count = 0
+        found = False
+
+        while current and found != True:
+            if val == current.data:
+                found = True
+                break
+            if val < current.data:
+                current = current.left
+            elif val > current.data:
+                current = current.right
+            count += 1
+        if found == True:
+            print(f'found in {count} steps')
+            return True
+        else:
+            return False
+
+
 
 b = BinarySearchTree()
 b.insert(15)
@@ -61,7 +83,8 @@ b.insert(2)
 b.insert(45)
 b.insert(25)
 b.insert(41)
+b.insert(1)
 
-print(b.root.right.data)
-print(b)
+# print(b.root.right.data)
+print(b.find(17))
 
