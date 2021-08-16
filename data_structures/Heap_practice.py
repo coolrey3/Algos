@@ -31,13 +31,19 @@ class MaxBinaryHeap():
         return self
 
     def remove(self):
+        if len(self.values) == 0:
+            return None
+
         lastidk = len(self.values)-1
         self.values[0],self.values[lastidk] = self.values[lastidk], self.values[0] 
+
+
         oldMax = self.values.pop()
 
         def sinkDown(node):
             l= node*2 +1
             r= node*2 +2
+
             if l >= len(self.values): return node,True
             if r >= len(self.values): childidx = l
             elif self.values[l] > self.values[r]:
@@ -50,12 +56,10 @@ class MaxBinaryHeap():
             else:
                 return node,True
             return childidx,False
-            # if self.values[node] 
 
         current = 0
         status  = False
         while status != True:
-            # status = True
             current,status = sinkDown(current)
 
         return oldMax
@@ -68,11 +72,12 @@ mh.insert(18)
 mh.insert(27)
 mh.insert(12)
 mh.insert(55)
-mh.insert(1)
-mh.insert(45)
-mh.insert(199)
-mh.insert(3)
-mh.insert(210)
 print(mh.values)
 print(mh.remove())
+print(mh.remove())
+# mh.insert(1)
+# mh.insert(45)
+# mh.insert(199)
+# mh.insert(3)
+# mh.insert(210)
 print(mh.values)
