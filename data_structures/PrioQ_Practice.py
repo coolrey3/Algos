@@ -4,6 +4,8 @@ class Node():
         self.priority = priority
         
 
+
+#  dequeu does not consider insertion order for siblings, only checking prio
 class PriorityQueue():
     def __init__(self) -> None:
         self.values = []
@@ -23,7 +25,7 @@ class PriorityQueue():
             parent = (current-1) // 2
             if node.priority <= self.values[parent].priority:
                 self.values[current] , self.values[parent] = self.values[parent], self.values[current]
-                print('parent node larger, swapped :', parent)
+                # print('parent node larger, swapped :', parent)
                 return parent
             else:
                 return True
