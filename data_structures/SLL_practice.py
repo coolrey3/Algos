@@ -142,12 +142,21 @@ class SinglyLinkedList():
         print('to be removed:',current)
 
     def reverse(self):
-        tempHead = self.head  
-        tempTail = self.tail
+        head = self.head  # saving old head
 
-        self.tail,self.head =self.head,self.tail
-        self.head.next = tempHead.next
-        
+        self.tail,self.head =self.head,self.tail   #swap head and tail
+        self.head.next = head.next   # new reversed head (old tail) next pointer set to old second node
+        pre = None
+
+        for x in range(self.length):  #loop through list
+            nex = head.next         #save old current next value
+            head.next = pre         # set old current next val to previous 
+            pre = head              #set previous to old current
+            head = nex              # set old current to old current nex
+
+        return self
+    
+
 
 
 
@@ -178,9 +187,8 @@ ll.insert(1,Node(1))
 # ll.head = first
 # first.next = Node(14)
 # first.next.next = Node(33)
-print()
 # print(ll.head)
 
-ll.remove(0)
-print(ll)
-print()
+# ll.remove(0)
+print(ll.reverse())
+
