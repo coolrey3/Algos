@@ -1,3 +1,4 @@
+#  no loginc for duplicate entries to overwrite value when sending same key
 class Hashmap():
 
     def __init__(self,size):
@@ -35,15 +36,45 @@ class Hashmap():
                     return None
             return self.KeyMap[index]
         return None
+    
+    def keys(self):
+        _keys = []
+        for x in self.KeyMap:
+            if x:
+                for y in x:
+                    _keys.append((y[0]))
+        return _keys
+
+    def values(self):
+        _values = []
+        for x in self.KeyMap:
+            if x:
+                for y in x:
+                    _values.append((y[1]))
+        return set(_values)
+
+
+    def items(self):
+        _values = []
+        for x in self.KeyMap:
+            if x:
+                for y in x:
+                    _values.extend(([y]))
+        return (_values)
+
         
 code = 'green'
 hm = Hashmap(4)
 hm.set('dog',14)
 hm.set('cat',1)
+hm.set('cat',3)
 hm.set('bird',44)
 hm.set('wolf',13)
+hm.set('wolbes',13)
 hm.set(code,32)
-print(hm.get('bird'))
+print(hm.keys())
+print(hm.values())
+print(hm.items())
 # print('Code: ',total, ' index: ', total % 11)
 # t = hash('1')
 # print(t)
