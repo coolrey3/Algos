@@ -38,15 +38,42 @@ class Graph():
                 for x in cur:
                     if x not in visited :
                         visited.append(x)
-                        print(x)
                         dfs(x)
                 return x
 
         dfs(current)
-        
+        print(visited)
         return visited
 
-        
+    def dfsIterative(self,start):
+        s = []
+        visited = []
+        s.append(start)
+        while s:
+            vertex = s.pop()
+            if vertex not in visited:
+                # print(vertex)
+                visited.append(vertex)
+                for x in self.adjacenyList[vertex]:
+                    s.append(x)
+        print(visited)
+        return visited
+
+    def bfs(self,start):
+        s = []
+        visited = []
+        s.append(start)
+        while s:
+            vertex = s.pop(0)
+            if vertex not in visited:
+                # print(vertex)
+                visited.append(vertex)
+                for x in self.adjacenyList[vertex]:
+                    s.append(x)
+        print(visited)
+        return visited
+
+
 
 g =Graph()
 g.addVertex('A')
@@ -67,6 +94,7 @@ print(g.adjacenyList)
 
 # g.removeVertex('Miami')
 
-print(g.adjacenyList)
-
-g.dfsRecursive('E')
+print()
+g.dfsRecursive('A')
+g.dfsIterative('A')
+g.bfs('A')
