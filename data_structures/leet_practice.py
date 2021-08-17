@@ -33,8 +33,13 @@ class Solution:
             
         return dummy.next
 
-s =Solution()
-l1 = ListNode(1,2)
-l1.next = ListNode(2,4)
-print(l1)
+# s =Solution()
+# l1 = ListNode(1,2)
+# l1.next = ListNode(2,4)
+# print(l1)
 # s.mergeTwoLists([1,2,4],[1,3,4])
+
+test = '1'
+print(test.isalpha())
+print(test.isdecimal())
+test.isnumeric

@@ -1,6 +1,3 @@
-class Node():
-    def __init__(self):
-        pass
 
 class Graph():
     def __init__(self):
@@ -28,7 +25,6 @@ class Graph():
 
     def dfsRecursive(self,start):
         visited = []
-        result = []
         current = start
         visited.append(current)
 

@@ -9,6 +9,9 @@ class Node():
 class PriorityQueue():
     def __init__(self) -> None:
         self.values = []
+
+    # def __repr__(self):
+    #     return (str(x) for x in self.values)
     
     def enqueue(self,val, priority):
 
@@ -80,8 +83,9 @@ er.enqueue('high fever',4)
 er.enqueue('broken arm',2)
 er.enqueue('glass in foot',3)
 er.enqueue('stabbed',1)
-print(er.dequeue())
-print(er.dequeue())
-print(er.dequeue())
-print(er.dequeue())
-print(er.dequeue())
+print(er)
+# print(er.dequeue())
+# print(er.dequeue())
+# print(er.dequeue())
+# print(er.dequeue())
+# print(er.dequeue())
