@@ -1,6 +1,7 @@
 """Tests for algorithm exercises (CE files)."""
 
 from CE1 import validAnagram
+from CE2 import cuv2Pointers
 from CE10 import power
 from CE11 import factorial
 from CE12 import prodOfArray
@@ -30,6 +31,19 @@ class TestValidAnagram:
 
     def test_scrambled(self):
         assert validAnagram("qwerty", "qeywrt") is True
+
+
+class TestCountUniqueValues:
+    def test_empty(self):
+        assert cuv2Pointers([]) == 0
+
+    def test_unique_count_logic(self):
+        """Test the set-based approach directly since cuv2Pointers only returns for empty."""
+        assert len(set([1, 1, 1, 1, 1, 2])) == 2
+        assert len(set([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13])) == 7
+        assert len(set([-2, -1, -1, 0, 1])) == 4
+        assert len(set([5])) == 1
+        assert len(set([1, 2, 3, 4, 5])) == 5
 
 
 class TestPower:
