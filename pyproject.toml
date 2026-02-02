@@ -1,0 +1,42 @@
+[project]
+name = "algos"
+version = "0.1.0"
+description = "Algorithms & Data Structures in Python"
+requires-python = ">=3.9"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "N",   # pep8-naming
+    "UP",  # pyupgrade
+]
+# Ignore rules that conflict with the learning/practice nature of this repo
+ignore = [
+    "E501",  # line too long (many algorithm files have long comments)
+    "F841",  # local variable assigned but never used (practice code)
+    "E741",  # ambiguous variable name (l, O, I common in algo code)
+    "N802",  # function name should be lowercase (BinarySearch, etc.)
+    "N806",  # variable in function should be lowercase (A, etc.)
+    "N803",  # argument name should be lowercase
+    "N801",  # class name should use CapWords (already does mostly)
+]
+
+[tool.ruff.lint.per-file-ignores]
+# CE files and practice files use print() extensively and have script-level code
+"CE*.py" = ["F401", "E402"]
+"main.py" = ["F401", "F403", "E402"]
+"scrap*.py" = ["F401", "E402"]
+"data_structures/*.py" = ["F401", "E402"]
+"data_structures/**/*.py" = ["F401", "E402"]
+"sort_algorithms/arraypractice.py" = ["F401", "E402"]
