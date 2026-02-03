@@ -1,15 +1,12 @@
-from sort_algorithms.bubble_sort import * 
-from sort_algorithms.selection_sort import * 
-from sort_algorithms.insertion_sort import * 
-from sort_algorithms.merge_sort import * 
+from search_algorithms.linear_search import *
+from sort_algorithms.bubble_sort import *
+from sort_algorithms.insertion_sort import *
+from sort_algorithms.merge_sort import *
+from sort_algorithms.selection_sort import *
+from string_manipulation.reverse_string import *
+from string_manipulation.vowels import *
 
-from search_algorithms.linear_search import * 
-
-from string_manipulation.vowels import * 
-from string_manipulation.reverse_string import * 
-
-
-array = [4,5,3,1,9,8,7]
+array = [4, 5, 3, 1, 9, 8, 7]
 
 
 # ls = LinearSearch(['q','e','g',],'g')
@@ -32,4 +29,4 @@ array = [4,5,3,1,9,8,7]
 # cv.count()
 
 rs = ReverseString()
-rs.reverse('Melissa')
+rs.reverse("Melissa")

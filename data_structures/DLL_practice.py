@@ -1,47 +1,45 @@
-
-class Node():
-    def __init__(self,data):
+class Node:
+    def __init__(self, data):
         self.data = data
         self.previous = None
         self.next = None
-    
-    def  __repr__(self):
-        return "{} -> {}".format(self.data,self.next)
 
-class DoublyLinkedList():
+    def __repr__(self):
+        return f"{self.data} -> {self.next}"
+
+
+class DoublyLinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
         self.length = 0
 
-    def  __repr__(self):
+    def __repr__(self):
         if self.head != None:
-            return "Length: {} \nHead: {} -> {}\nTail: {}".format(self.length,self.head.data,self.head.next,self.tail)
+            return f"Length: {self.length} \nHead: {self.head.data} -> {self.head.next}\nTail: {self.tail}"
         else:
             return "List empty"
 
-    def push(self,node):
-
+    def push(self, node):
         if self.length == 0:
             self.head = node
             self.tail = node
             self.length += 1
             return self
-        
+
         currentTail = self.tail
         currentTail.next = node
-        self.tail  = node
+        self.tail = node
         self.tail.previous = currentTail
 
         self.length += 1
 
     def pop(self):
-
         poppedNode = self.tail
 
         if self.head == None:
             return self
-        
+
         if self.length == 1:
             self.head = None
             self.tail = None
@@ -54,8 +52,6 @@ class DoublyLinkedList():
         return poppedNode
 
     def shift(self):
-
-
         if self.length == 0:
             return None
 
@@ -73,20 +69,18 @@ class DoublyLinkedList():
         self.length -= 1
         return shiftedNode
 
-    def unshift(self,node):
-
+    def unshift(self, node):
         if self.head == None:
             self.push(node)
             return self
-        
+
         self.head.previous = node
         node.next = self.head
         self.head = node
         self.length += 1
         return self
 
-    def get(self,index):
-
+    def get(self, index):
         if index < 0 or index >= self.length:
             return None
 
@@ -97,36 +91,35 @@ class DoublyLinkedList():
             while i != index:
                 current = current.next
                 i += 1
-            print('from beginning')
+            print("from beginning")
             print(current)
             return current
-            
+
         else:
-            i= self.length-1
+            i = self.length - 1
             current = self.tail
             while i != index:
                 current = current.previous
                 i -= 1
-            print('from end')
+            print("from end")
             print(current)
             return current
 
-            
-    def set(self,index,data):
-
+    def set(self, index, data):
         current = self.get(index)
         if current:
             current.data = data
         else:
             return None
 
+
 first = Node(5)
-dl= DoublyLinkedList()
+dl = DoublyLinkedList()
 dl.push(first)
 dl.push(Node(199))
 print(dl)
 
-dl.push(Node('last'))
+dl.push(Node("last"))
 # # dl.pop()
 # print(dl.pop().previous)
 dl.unshift(Node(55))
@@ -135,6 +128,6 @@ print(dl)
 print()
 
 dl.get(3)
-dl.set(3,420)
+dl.set(3, 420)
 dl.get(3)
 print(dl)

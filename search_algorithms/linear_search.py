@@ -1,8 +1,8 @@
+# * Time Complexity Best: O(1) | Worst: O(n)
 
-#* Time Complexity Best: O(1) | Worst: O(n)
 
-class LinearSearch():
-    def __init__(self,array,search):
+class LinearSearch:
+    def __init__(self, array, search):
         self.array = array
         self.searchString = search
         print(array)

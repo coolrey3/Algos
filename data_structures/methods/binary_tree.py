@@ -1,4 +1,5 @@
 from binarytree import Node
+
 # Create root
 root = Node(4)
 # Create nodes
@@ -18,23 +19,25 @@ node5.left = Node(5)
 node5.right = Node(10)
 
 # Getting binary tree
-print('Binary Tree: ',root)
+print("Binary Tree: ", root)
 
 # Getting list of nodes
-print('List of nodes :', list(root))
+print("List of nodes :", list(root))
 
 # Getting inorder of nodes
-print('Inorder of nodes :', root.inorder)
+print("Inorder of nodes :", root.inorder)
 print()
 # Checking tree properties
-print('Size of tree :', root.size)
-print('Height of tree :', root.height)
+print("Size of tree :", root.size)
+print("Height of tree :", root.height)
 print()
 
 # Get all properties at once
 
-def fancy():
-    for k,v in root.properties.items():
-        print("{} : {}".format(k , v))
 
-print('Properties of tree : \n', fancy())
+def fancy():
+    for k, v in root.properties.items():
+        print(f"{k} : {v}")
+
+
+print("Properties of tree : \n", fancy())

@@ -1,32 +1,30 @@
-class MaxBinaryHeap():
+class MaxBinaryHeap:
     def __init__(self) -> None:
         self.values = []
-    
-    def insert(self,data):
 
+    def insert(self, data):
         self.values.append(data)
         if len(self.values) <= 1:
             return self
 
-        lastidx = len(self.values)-1
+        lastidx = len(self.values) - 1
         cur = lastidx
-        
-        def bubbleUp(current,node):
 
-            parent = (current-1) // 2
+        def bubbleUp(current, node):
+            parent = (current - 1) // 2
             if node >= self.values[parent]:
-                self.values[current] , self.values[parent] = self.values[parent], self.values[current]
-                print('parent node larger, swapped :', parent)
+                self.values[current], self.values[parent] = self.values[parent], self.values[current]
+                print("parent node larger, swapped :", parent)
                 return parent
             else:
                 return True
 
         while True:
-            run =  bubbleUp(cur,data)
+            run = bubbleUp(cur, data)
             cur = run
-            if cur == 0 or  self.values[run] <= self.values[(run-1) // 2]:
+            if cur == 0 or self.values[run] <= self.values[(run - 1) // 2]:
                 break
-            print(cur) # sortComplete = True
+            print(cur)  # sortComplete = True
 
         return self
 
@@ -34,35 +32,37 @@ class MaxBinaryHeap():
         if len(self.values) == 0:
             return None
 
-        lastidk = len(self.values)-1
-        self.values[0],self.values[lastidk] = self.values[lastidk], self.values[0] 
-
+        lastidk = len(self.values) - 1
+        self.values[0], self.values[lastidk] = self.values[lastidk], self.values[0]
 
         oldMax = self.values.pop()
 
         def sinkDown(node):
-            l= node*2 +1
-            r= node*2 +2
+            l = node * 2 + 1
+            r = node * 2 + 2
 
-            if l >= len(self.values): return node,True
-            if r >= len(self.values): childidx = l
+            if l >= len(self.values):
+                return node, True
+            if r >= len(self.values):
+                childidx = l
             elif self.values[l] > self.values[r]:
                 childidx = l
             else:
                 childidx = r
-            
+
             if self.values[childidx] >= self.values[node]:
-                self.values[node], self.values[childidx]= self.values[childidx],self.values[node]
+                self.values[node], self.values[childidx] = self.values[childidx], self.values[node]
             else:
-                return node,True
-            return childidx,False
+                return node, True
+            return childidx, False
 
         current = 0
-        status  = False
+        status = False
         while status != True:
-            current,status = sinkDown(current)
+            current, status = sinkDown(current)
 
         return oldMax
+
 
 mh = MaxBinaryHeap()
 mh.insert(41)
