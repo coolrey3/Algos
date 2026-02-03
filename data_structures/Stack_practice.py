@@ -1,13 +1,13 @@
-class Node():
-    def __init__(self,data) -> None:
-        self.data=data
+class Node:
+    def __init__(self, data) -> None:
+        self.data = data
         self.next = None
 
     def __repr__(self) -> str:
-        return 'data: {} -> {}'.format(self.data,self.next)
-        
+        return f"data: {self.data} -> {self.next}"
 
-class Stack():
+
+class Stack:
     def __init__(self) -> None:
         self.first = None
         self.last = None
@@ -18,33 +18,31 @@ class Stack():
         # while current != None:
         #     print(current)
         #     current = current.next
-        return 'first: {} \nlast: {} \nsize: {}'.format(self.first,self.last,self.size)
+        return f"first: {self.first} \nlast: {self.last} \nsize: {self.size}"
 
-    def push(self,node):
-
+    def push(self, node):
         if self.size == 0:
-            self.first =node
+            self.first = node
             self.last = node
         else:
             temp = self.first
             self.first = node
             self.first.next = temp
-            
+
         self.size += 1
         return self.size
 
-    
     def pop(self):
-
         if self.first == None:
             return None
-        
+
         temp = self.first
-        self.first =temp.next
-        temp.next = None 
+        self.first = temp.next
+        temp.next = None
 
         self.size -= 1
         return temp
+
 
 s = Stack()
 s.push(Node(15))

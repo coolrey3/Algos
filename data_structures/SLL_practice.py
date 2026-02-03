@@ -1,30 +1,32 @@
 # Data value
 # Pointer value
-class Node():
-    def __init__(self,data):
+class Node:
+    def __init__(self, data):
         self.data = data
-        self.next=None
-    def __repr__(self) :
-        return 'Data: {} -> {}'.format(str(self.data),str(self.next))
+        self.next = None
 
-class SinglyLinkedList():
+    def __repr__(self):
+        return f"Data: {str(self.data)} -> {str(self.next)}"
+
+
+class SinglyLinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
         self.length = 0
 
     def __repr__(self):
-        if self.length !=0:
-            return 'Head: {} \nTail: {} Length: {}'.format(str(self.head),str(self.tail.data),str(self.length))
+        if self.length != 0:
+            return f"Head: {str(self.head)} \nTail: {str(self.tail.data)} Length: {str(self.length)}"
         else:
-            return 'Linked List is Empty'
-    def push(self,node):
-        
+            return "Linked List is Empty"
+
+    def push(self, node):
         if self.head == None:
             self.head = node
             self.tail = self.head
             self.length += 1
-        
+
         else:
             self.length += 1
             self.tail.next = node
@@ -38,7 +40,8 @@ class SinglyLinkedList():
             current = current.next
 
     def pop(self):
-        if self.length == 0: return None
+        if self.length == 0:
+            return None
 
         current = self.head
         tempTail = self.tail
@@ -56,12 +59,13 @@ class SinglyLinkedList():
                 self.tail = None
             else:
                 current = current.next
-        print('Popping:',popNode)
-        print('New Tail: ',self.tail)
+        print("Popping:", popNode)
+        print("New Tail: ", self.tail)
         return popNode
 
     def shift(self):
-        if self.length == 0: return None
+        if self.length == 0:
+            return None
         oldHead = self.head
         self.head = oldHead.next
         self.length -= 1
@@ -70,9 +74,9 @@ class SinglyLinkedList():
         oldHead.next = None
         return oldHead
 
-    def unshift(self,node):
+    def unshift(self, node):
         if self.head == None:
-            self.head =node
+            self.head = node
             self.tail = node
         else:
             oldHead = self.head
@@ -81,8 +85,9 @@ class SinglyLinkedList():
             self.length += 1
         return self
 
-    def get(self,index):
-        if index >= self.length or index < 0: return None
+    def get(self, index):
+        if index >= self.length or index < 0:
+            return None
 
         if index == 0:
             return self.head
@@ -92,24 +97,23 @@ class SinglyLinkedList():
             current = current.next
             i += 1
         return current
-    
-    def set(self,index,data):
+
+    def set(self, index, data):
         current = self.get(index)
         if current == None:
             return False
         current.data = data
         return current
 
-    def insert(self,index,node):
-
+    def insert(self, index, node):
         if index == self.length:
             self.push(node)
             return self
-        
+
         if index == 0:
             self.unshift(node)
             return self
-        
+
         current = self.head
         i = 0
         while i != index:
@@ -120,45 +124,38 @@ class SinglyLinkedList():
         previous.next = node
         node.next = current
         self.length += 1
-        print(previous) #previous.next points to node
-        print(current) #node.next point to current
+        print(previous)  # previous.next points to node
+        print(current)  # node.next point to current
 
-    def remove(self,index):
-
+    def remove(self, index):
         if index == 0:
-            
             return self.shift()
-        if index == self.length-1:
-            
+        if index == self.length - 1:
             return self.pop()
 
-        previous = self.get(index-1)
+        previous = self.get(index - 1)
         current = self.get(index)
         previous.next = current.next
         current.next = None
         self.length -= 1
 
-        print('previous: ',previous)
-        print('to be removed:',current)
+        print("previous: ", previous)
+        print("to be removed:", current)
 
     def reverse(self):
         head = self.head  # saving old head
 
-        self.tail,self.head =self.head,self.tail   #swap head and tail
-        self.head.next = head.next   # new reversed head (old tail) next pointer set to old second node
+        self.tail, self.head = self.head, self.tail  # swap head and tail
+        self.head.next = head.next  # new reversed head (old tail) next pointer set to old second node
         pre = None
 
-        for x in range(self.length):  #loop through list
-            nex = head.next         #save old current next value
-            head.next = pre         # set old current next val to previous 
-            pre = head              #set previous to old current
-            head = nex              # set old current to old current nex
+        for x in range(self.length):  # loop through list
+            nex = head.next  # save old current next value
+            head.next = pre  # set old current next val to previous
+            pre = head  # set previous to old current
+            head = nex  # set old current to old current nex
 
         return self
-    
-
-
-
 
 
 ll = SinglyLinkedList()
@@ -182,7 +179,7 @@ ll.push(Node(45))
 
 print(ll.get(1))
 print()
-ll.insert(1,Node(1))
+ll.insert(1, Node(1))
 
 # ll.head = first
 # first.next = Node(14)
@@ -191,4 +188,3 @@ ll.insert(1,Node(1))
 
 # ll.remove(0)
 print(ll.reverse())
-

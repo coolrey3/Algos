@@ -1,6 +1,5 @@
-class Node():
-
-    def __init__(self,data) -> None:
+class Node:
+    def __init__(self, data) -> None:
         self.data = data
         self.left = None
         self.right = None
@@ -8,23 +7,22 @@ class Node():
     def __repr__(self):
         return str(self.data)
 
-class BinarySearchTree():
 
+class BinarySearchTree:
     def __init__(self) -> None:
         self.root = None
 
-#     def __repr__(self):
-#         # for x in 
-#         current = self.root
-#         while current != None:
-#             print( f'''{current.data}
-#     / \\
-# {current.left.data}    {current.right.data}
-#             ''')
-#             current = current.left
-    
-    def insert(self,data):
+    #     def __repr__(self):
+    #         # for x in
+    #         current = self.root
+    #         while current != None:
+    #             print( f'''{current.data}
+    #     / \\
+    # {current.left.data}    {current.right.data}
+    #             ''')
+    #             current = current.left
 
+    def insert(self, data):
         node = Node(data)
 
         if self.root == None:
@@ -34,7 +32,8 @@ class BinarySearchTree():
         current = self.root
 
         while True:
-            if node.data == current.data: break
+            if node.data == current.data:
+                break
             if node.data < current.data:
                 if current.left == None:
                     current.left = node
@@ -48,9 +47,9 @@ class BinarySearchTree():
 
         return self
 
-    def find(self,val):
-        
-        if self.root == None: return None
+    def find(self, val):
+        if self.root == None:
+            return None
 
         current = self.root
         count = 0
@@ -66,7 +65,7 @@ class BinarySearchTree():
                 current = current.right
             count += 1
         if found == True:
-            print(f'found in {count} steps')
+            print(f"found in {count} steps")
             return True
         else:
             return False
@@ -91,40 +90,43 @@ class BinarySearchTree():
         return visited
 
     def dfsPre(self):
-        
         visited = []
         current = self.root
 
         def dfsPreHelper(current):
-                visited.append(current)
-                if current.left: dfsPreHelper(current.left)
-                if current.right: dfsPreHelper(current.right)
+            visited.append(current)
+            if current.left:
+                dfsPreHelper(current.left)
+            if current.right:
+                dfsPreHelper(current.right)
 
         dfsPreHelper(current)
         return visited
 
     def dfsPost(self):
-        
         visited = []
         current = self.root
 
         def dfsPostHelper(current):
-                if current.left: dfsPostHelper(current.left)
-                if current.right: dfsPostHelper(current.right)
-                visited.append(current)
+            if current.left:
+                dfsPostHelper(current.left)
+            if current.right:
+                dfsPostHelper(current.right)
+            visited.append(current)
 
         dfsPostHelper(current)
         return visited
 
     def dfsinOrder(self):
-        
         visited = []
         current = self.root
 
         def dfsInOrderHelper(current):
-                if current.left: dfsInOrderHelper(current.left)
-                visited.append(current)
-                if current.right: dfsInOrderHelper(current.right)
+            if current.left:
+                dfsInOrderHelper(current.left)
+            visited.append(current)
+            if current.right:
+                dfsInOrderHelper(current.right)
 
         dfsInOrderHelper(current)
         return visited

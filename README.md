@@ -74,7 +74,7 @@ pytest tests/test_algorithms.py -v
 pytest -v --tb=short
 ```
 
-## Linting
+## Linting & Formatting
 
 ```bash
 # Check for issues
@@ -82,13 +82,30 @@ ruff check .
 
 # Auto-fix what's possible
 ruff check --fix .
+
+# Format code
+ruff format .
+```
+
+### Pre-commit Hooks (Optional)
+
+Set up automatic linting on every commit:
+
+```bash
+# Install pre-commit
+pip install pre-commit
+
+# Install the git hooks
+pre-commit install
+
+# Now every commit will auto-lint!
 ```
 
 ## CI/CD
 
 GitHub Actions runs automatically on push/PR to `main`:
-- **Lint** — ruff checks on Python 3.12
-- **Test** — pytest across Python 3.9, 3.10, 3.11, 3.12
+- **Lint** — ruff check + format verification (Python 3.12)
+- **Test** — pytest with coverage across Python 3.9, 3.10, 3.11, 3.12, 3.13
 
 ## Project Structure
 

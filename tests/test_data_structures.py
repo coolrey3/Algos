@@ -1,6 +1,5 @@
 """Tests for hand-built data structures."""
 
-
 from data_structures.fib import fib, fibBUp
 from data_structures.Graph_practice import Graph
 from data_structures.Queue_practice import Queue
@@ -9,6 +8,7 @@ from data_structures.Stack_practice import Node as StackNode
 from data_structures.Stack_practice import Stack
 
 # --- Singly Linked List ---
+
 
 class TestSinglyLinkedList:
     def test_push_single(self):
@@ -98,6 +98,7 @@ class TestSinglyLinkedList:
 
 # --- Stack ---
 
+
 class TestStack:
     def test_push(self):
         s = Stack()
@@ -127,6 +128,7 @@ class TestStack:
 
 
 # --- Queue ---
+
 
 class TestQueue:
     def test_enqueue(self):
@@ -158,6 +160,7 @@ class TestQueue:
 
 
 # --- Graph ---
+
 
 class TestGraph:
     def test_add_vertex(self):
@@ -218,6 +221,7 @@ class TestGraph:
 
 
 # --- Fibonacci ---
+
 
 class TestFibonacci:
     def test_fib_base_cases(self):

@@ -1,17 +1,15 @@
-
-
-class Graph():
+class Graph:
     def __init__(self):
         self.adjacenyList = {}
 
-    def addVertex(self,key):
+    def addVertex(self, key):
         if key in self.adjacenyList:
             return
         self.adjacenyList[key] = []
 
-    def addEdge(self,v1,v2,weight):
-        self.adjacenyList[v1].append({'node':v2,'weight':weight})
-        self.adjacenyList[v2].append({'node':v1,'weight':weight})
+    def addEdge(self, v1, v2, weight):
+        self.adjacenyList[v1].append({"node": v2, "weight": weight})
+        self.adjacenyList[v2].append({"node": v1, "weight": weight})
 
     # def removeEdge(self,v1,v2):
     #     self.adjacenyList[v1].remove(v2)
@@ -72,22 +70,22 @@ class Graph():
     #     return visited
 
 
-
-g =Graph()
-g.addVertex('A')
-g.addVertex('B')
-g.addVertex('C')
-g.addVertex('D')
-g.addVertex('E')
-g.addVertex('F')
-g.addEdge('A','B',2)
-g.addEdge('A','C',1)
-g.addEdge('B','D',3)
-g.addEdge('E','C',2)
-g.addEdge('D','E',3)
-g.addEdge('D','F',3)
-g.addEdge('E','F',2)
+g = Graph()
+g.addVertex("A")
+g.addVertex("B")
+g.addVertex("C")
+g.addVertex("D")
+g.addVertex("E")
+g.addVertex("F")
+g.addEdge("A", "B", 2)
+g.addEdge("A", "C", 1)
+g.addEdge("B", "D", 3)
+g.addEdge("E", "C", 2)
+g.addEdge("D", "E", 3)
+g.addEdge("D", "F", 3)
+g.addEdge("E", "F", 2)
 from pprint import pprint
+
 pprint(g.adjacenyList)
 # # g.removeEdge('Miami', 'New York')
 

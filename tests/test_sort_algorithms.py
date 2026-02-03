@@ -1,6 +1,5 @@
 """Tests for sorting algorithms."""
 
-
 from sort_algorithms.bubble_sort import BubbleSort
 from sort_algorithms.insertion_sort import InsertionSort
 from sort_algorithms.merge_sort import MergeSort

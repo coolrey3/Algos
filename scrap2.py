@@ -34,8 +34,9 @@
 #         # The stack won't be empty for cases like ((()
 #         return not stack
 
-class Solution(object):
+
+class Solution:
     def isValid(self, s):
-        while "()" in s or "{}" in s or '[]' in s:
-            s = s.replace("()", "").replace('{}', "").replace('[]', "")
-        return s == ''
+        while "()" in s or "{}" in s or "[]" in s:
+            s = s.replace("()", "").replace("{}", "").replace("[]", "")
+        return s == ""
