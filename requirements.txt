@@ -1,0 +1,3 @@
+# Production dependencies for Algos
+# This is a learning/practice repository with no external runtime dependencies
+# All dependencies are dev/test tools listed in requirements-dev.txt
