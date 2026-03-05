@@ -87,6 +87,16 @@ ruff check --fix .
 ruff format .
 ```
 
+## Type Checking
+
+```bash
+# Run type checking with mypy
+mypy data_structures/ sort_algorithms/ search_algorithms/ string_manipulation/
+
+# Type check with automatic type stub installation
+mypy --install-types --non-interactive data_structures/
+```
+
 ### Pre-commit Hooks (Optional)
 
 Set up automatic linting on every commit:
@@ -104,8 +114,10 @@ pre-commit install
 ## CI/CD
 
 GitHub Actions runs automatically on push/PR to `main`:
-- **Lint** — ruff check + format verification (Python 3.12)
-- **Test** — pytest with coverage across Python 3.9, 3.10, 3.11, 3.12, 3.13
+- **Lint** — ruff check + format verification (Python 3.11)
+- **Type Check** — mypy static type analysis (Python 3.11)
+- **Test** — pytest with coverage across Python 3.9, 3.10, 3.11, 3.12
+- **Security** — pip-audit dependency vulnerability scan (Python 3.11)
 
 ## Project Structure
 
