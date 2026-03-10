@@ -58,8 +58,28 @@ git clone https://github.com/coolrey3/Algos.git
 cd Algos
 
 # Install dev dependencies (for testing & linting)
+# Use lock file for reproducible builds
+pip install -r requirements-dev.lock
+
+# OR install from requirements-dev.txt for latest compatible versions
 pip install -r requirements-dev.txt
 ```
+
+### Dependency Management
+
+This project uses **pip-tools** to maintain a lock file for reproducible builds:
+
+- **`requirements-dev.txt`** — defines dependency ranges (e.g., `pytest>=7.0`)
+- **`requirements-dev.lock`** — pinned versions for exact reproducibility
+
+**To update the lock file after changing requirements-dev.txt:**
+
+```bash
+pip install pip-tools
+pip-compile requirements-dev.txt -o requirements-dev.lock
+```
+
+**Best practice:** Use `requirements-dev.lock` in CI and local development for consistent environments.
 
 ## Running Tests
 
